@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf Market | Nature's Best</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo-wrap">
+                <span class="leaf">🌿</span>
+                <h1 class="brand-name">GreenLeaf Market</h1>
+                <span class="leaf">🌿</span>
+            </div>
+            <nav class="top-nav">
+                <a href="#" onclick="filter('All')">Home</a>
+                <a href="#product-grid" onclick="filter('Flower')">Flowers</a>
+                <a href="#product-grid" onclick="filter('Indoor')">Indoor Plants</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <div class="cart-pill" onclick="openCart()">
+                    🛒 Cart: <span id="count">0</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2 class="hero-title">Fresh Plants Delivered to Your Doorstep</h2>
+            <p class="hero-subtitle">Explore Flowers, Indoor plants, and Medicinal plants at the best prices.</p>
+            <a href="#product-grid" class="shop-now-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search indoor, flowers, medicinal...">
+        </div>
+
+        <h2 class="section-title">Our Plant Collection</h2>
+        <div class="category-pills">
+            <button class="pill active" id="btn-all" onclick="filter('All', event)">All</button>
+            <button class="pill" id="btn-indoor" onclick="filter('Indoor', event)">Indoor</button>
+            <button class="pill" id="btn-flower" onclick="filter('Flower', event)">Flowers</button>
+            <button class="pill" id="btn-medicinal" onclick="filter('Medicinal', event)">Medicinal</button>
+        </div>
+    </section>
+
+    <main id="product-grid" class="product-grid"></main>
+
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>Welcome to GreenLeaf Market. We are a team of plant enthusiasts dedicated to bringing the beauty of
+                nature into your homes. Our plants are ethically sourced and nurtured with care to ensure they arrive at
+                your doorstep healthy and vibrant.</p>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER / CONTACT ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- CONTACT -->
+            <div class="footer-box">
+                <h3>Get in Touch</h3>
+
+                <p>📧 greenleaf.market@gmail.com</p>
+                <p>📞 +91 98765 43210</p>
+                <p>📍 Bengaluru, Karnataka</p>
+            </div>
+
+            <!-- FOLLOW US -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- SUBSCRIBE -->
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <p>Get updates on new plants & offers!</p>
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 GreenLeaf Market | All Rights Reserved
+        </div>
+    </footer>
+
+
+
+
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="modal-title">Your Selection</h2>
+            <div id="items-list" class="cart-scroll"></div>
+            <div class="cart-footer">
+                <p>Total Items: <span id="m-qty">0</span></p>
+                <h3>Total: ₹<span id="m-total">0</span></h3>
+            </div>
+            <button class="btn-primary" onclick="checkout()">Proceed to Checkout</button>
+            <button class="btn-secondary" onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="modal-title">Payment & Delivery</h2>
+            <input type="text" id="locationInput" placeholder="Enter Full Delivery Address" class="input-field">
+            <select id="paymentMethod" onchange="showPaymentFields()" class="input-field">
+                <option value="COD">Cash on Delivery</option>
+                <option value="UPI">UPI Payment</option>
+                <option value="Card">Credit/Debit Card</option>
+            </select>
+
+            <div id="card-fields" class="hidden">
+                <input type="text" id="cardName" placeholder="Card Holder Name" class="input-field">
+
+                <input type="text" id="cardNumber" placeholder="0000-0000-0000-0000" class="input-field" maxlength="19">
+
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" class="input-field" maxlength="5">
+
+                    <input type="text" id="cardCVV" placeholder="CVV (3 digits)" class="input-field" maxlength="3">
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="finish()">Place Order 🌱</button>
+            <button class="btn-secondary"
+                onclick="document.getElementById('payment-modal').classList.add('hidden')">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <button id="scrollToTop" class="scroll-btn">↑</button>
+</body>
+
+</html>

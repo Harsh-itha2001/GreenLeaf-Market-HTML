@@ -1,0 +1,446 @@
+:root {
+    --brand-green: #1b5e20;
+    --light-bg: #f1f8f1;
+    --white: #ffffff;
+    --text-color: #1b3022;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+/* HEADER */
+.main-header {
+    background-color: var(--brand-green);
+    color: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.top-nav a:hover {
+    opacity: 0.7;
+}
+
+.cart-pill {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* HERO */
+.hero-banner {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--brand-green);
+    margin: 0;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin: 10px 0 30px;
+}
+
+.shop-now-btn {
+    background-color: var(--brand-green);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* GRID (4 Per Row) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* FORCES 4 IN A ROW */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.img-box {
+    height: 200px;
+    background: #fdfdfd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* FILTER */
+.filter-section {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+/* search*/
+#search {
+    width: 300px;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.category-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pill {
+    background: white;
+    border: 1.5px solid var(--brand-green);
+    color: var(--brand-green);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.pill.active {
+    background: var(--brand-green);
+    color: white;
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: white;
+}
+
+.grey-bg {
+    background: #eef5ee;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* MODALS */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: var(--brand-green);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    background: #eee;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.contact {
+    background: #e8f5e9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #1b5e20;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.contact-info a {
+    color: #2b5d44;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    color: #2b5d44;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: #66bb6a;
+}
+
+
+
+/* ================= FOOTER ================= */
+/* ================= FOOTER ================= */
+.footer {
+    background: #2f5d44;
+    color: #ffffff;
+    padding: 40px 20px 15px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+/* CONTACT BOX */
+.footer-box {
+    background: #e8f5e9;
+    padding: 25px;
+    border-radius: 10px;
+    color: #1b5e20;
+    text-align: center;
+    min-width: 250px;
+}
+
+.footer-box h3 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+.footer-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* FOLLOW + SUBSCRIBE */
+.footer-section {
+    text-align: center;
+    color: #ffffff;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: #a5d6a7;
+    margin-bottom: 12px;
+}
+
+/* SOCIAL ICONS */
+.social-icons a {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #66bb6a;
+}
+
+/* SUBSCRIBE */
+.subscribe-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.subscribe-box input {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    width: 180px;
+}
+
+.subscribe-box button {
+    background: #66bb6a;
+    border: none;
+    padding: 8px 14px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.subscribe-box button:hover {
+    background: #4caf50;
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px solid #66bb6a;
+    font-size: 14px;
+    color: #c8e6c9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+.scroll-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--brand-green);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Hidden by default */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.1);
+    background-color: #1b5e20;
+    /* Darker green on hover */
+}
+
+#card-fields div .input-field {
+    flex: 1;
+    /* Makes them equal width side-by-side */
+}
